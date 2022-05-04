@@ -6,7 +6,7 @@
 /*   By: jvan-tol <jvan-tol@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/18 10:50:49 by jvan-tol      #+#    #+#                 */
-/*   Updated: 2022/04/13 16:40:15 by jvan-tol      ########   odam.nl         */
+/*   Updated: 2022/05/04 17:33:11 by jvan-tol      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,10 @@ void	run_process(char *argv, char *envp[])
 	char	**cmd_args;
 	char	*path;
 
-	printf("Hallo\n");
 	cmd_args = ft_split(argv, ' ');
 	if (!cmd_args)
 		return ;
 	path = parse_path(cmd_args[0], envp);
-	printf("the path: %s\n", path);
 	if (!path)
 		free_path(cmd_args);
 	if (execve(path, cmd_args, envp) == -1)
